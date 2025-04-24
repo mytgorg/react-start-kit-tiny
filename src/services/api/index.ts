@@ -2,6 +2,14 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { delay } from '../../utils/async';
 
+// Declare import.meta type for Vite environment variables
+interface ImportMeta {
+  env: {
+    VITE_API_URL?: string;
+    [key: string]: string | undefined;
+  };
+}
+
 export const api: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'https://api.example.com',
   timeout: 10000,

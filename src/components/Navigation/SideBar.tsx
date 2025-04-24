@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import { Link, useParams } from 'react-router-dom';
@@ -41,7 +42,6 @@ const SideBar: React.FC = () => {
                             setIsOpen(false);
                         }}
                     >
-                        {/* <span role="img" aria-label="warning">⚠️</span> */}
                         Report Scam
                     </Link>
             </Menu>

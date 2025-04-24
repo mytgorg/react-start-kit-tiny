@@ -1,6 +1,6 @@
 import React from 'react';
 import LoadingSpinner from '../../LoadingSpinner';
-import { countryCodes } from 'constants/countryCodes';
+import { countryCodes } from '../../../constants/countryCodes';
 import { RegisterFormData } from '../types';
 import '../styles/form.css';
 import { vibrateSuccess, vibrateError } from '../../../utils/haptics';

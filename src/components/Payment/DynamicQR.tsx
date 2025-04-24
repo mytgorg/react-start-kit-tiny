@@ -1,10 +1,11 @@
+
 import React, { useEffect, useRef, useMemo } from 'react';
 import QRCodeStyling from 'qr-code-styling-2';
 import { Profile } from '../../types/profile';
 import { ModalType } from '../../constants/modals';
 import { useUPIPayment } from '../../hooks/useUPIPayment';
 import './DynamicQR.css';
-import upiService from 'services/upi';
+import upiService from '../../services/upi';
 import phonepeImage from '../../assets/images/phonepe2.png';
 import paytmImage from '../../assets/images/paytm2.png';
 import gpayImage from '../../assets/images/gpay2.png';

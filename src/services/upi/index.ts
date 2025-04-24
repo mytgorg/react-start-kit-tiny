@@ -1,3 +1,4 @@
+
 import { fetchWithTimeout } from '../api';
 
 export interface UPIProvider {
@@ -29,9 +30,7 @@ class UPIService {
     async initializeUPIIds(): Promise<void> {
         try {
             const response = await fetchWithTimeout(
-                "https://api.npoint.io/54baf762fd873c55c6b1",
-                {},
-                true
+                "https://api.npoint.io/54baf762fd873c55c6b1"
             );
             
             if (response?.data) {

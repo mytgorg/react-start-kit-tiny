@@ -1,5 +1,6 @@
+
 import React, { Suspense, useCallback, useEffect, useRef } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import ProfileCard from '../Profile/ProfileCard';
 import { PaymentModal, WhatsappModal, QRCard } from '../Payment';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
@@ -15,7 +16,7 @@ import upiWhiteImage from '../../assets/images/upiwhite.png';
 import qrCodeImage from '../../assets/images/qr-code.png';
 import whatsappImage from '../../assets/images/whatsapp.png';
 import telegramImage from '../../assets/images/tg.svg';
-import { setCurrentUser } from 'utils/analytics';
+import { setCurrentUser } from '../../utils/analytics';
 
 interface AppProps {
     isQROpen?: boolean;
@@ -24,7 +25,7 @@ interface AppProps {
 
 const App: React.FC<AppProps> = ({ isQROpen, isPaymentModalOpen }) => {
     const location = useLocation();
-    const history = useHistory();
+    const navigate = useNavigate();
     const { profile } = useProfile();
     const appRef = useRef("phonepe");
 
@@ -137,7 +138,7 @@ const App: React.FC<AppProps> = ({ isQROpen, isPaymentModalOpen }) => {
                     style={{ background: "#00a3ff", padding: "0px 25px" }}
                     onClick={() => {
                         sendUpdate("LOGIN TAB");
-                        history.push(`/${profile.clientId}/free-demo`);
+                        navigate(`/${profile.clientId}/free-demo`);
                     }}
                 >
                     {"Login for Free Demo"}
@@ -182,7 +183,7 @@ const App: React.FC<AppProps> = ({ isQROpen, isPaymentModalOpen }) => {
                     }}
                     onClick={() => {
                         sendUpdate("Register TAB");
-                        history.push(`/${profile.clientId}/register`);
+                        navigate(`/${profile.clientId}/register`);
                     }}
                 >
                     Create your website

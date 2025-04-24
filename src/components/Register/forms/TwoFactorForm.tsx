@@ -1,6 +1,6 @@
 import React from 'react';
 import LoadingSpinner from '../../LoadingSpinner';
-import { EyeIcon, EyeSlashIcon } from 'assets/icons';
+import { EyeIcon, EyeSlashIcon } from '../../../assets/icons';
 import { RegisterFormData } from '../types';
 import '../styles/form.css';
 import { vibrateError } from '../../../utils/haptics';

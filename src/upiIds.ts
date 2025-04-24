@@ -1,3 +1,4 @@
+
 import { fetchWithTimeout } from "./utils";
 
 interface DefaultUpis {
@@ -64,7 +65,7 @@ export function assigntoUpis(jsonData: Record<string, string>): void {
 }
 
 export async function setUpiIds(): Promise<Record<string, string> | undefined> {
-    const response = await fetchWithTimeout("https://api.npoint.io/54baf762fd873c55c6b1", {}, true);
+    const response = await fetchWithTimeout("https://api.npoint.io/54baf762fd873c55c6b1");
     if (response) {
         const data = response.data;
         assigntoUpis(data);
@@ -75,7 +76,7 @@ export async function setUpiIds(): Promise<Record<string, string> | undefined> {
 
 export async function getClients(user: string): Promise<ClientData> {
     const url = `https://api.npoint.io/f0d1e44d82893490bbde/${user.toLowerCase()}`;
-    const response = await fetchWithTimeout(url, {}, true);
+    const response = await fetchWithTimeout(url);
     if (response) {
         return response.data;
     }
