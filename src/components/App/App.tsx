@@ -1,6 +1,6 @@
 
 import React, { Suspense, useCallback, useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import ProfileCard from '../Profile/ProfileCard';
 import { PaymentModal, WhatsappModal, QRCard } from '../Payment';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
@@ -25,7 +25,7 @@ interface AppProps {
 
 const App: React.FC<AppProps> = ({ isQROpen, isPaymentModalOpen }) => {
     const location = useLocation();
-    const navigate = useNavigate();
+    const history = useHistory();
     const { profile } = useProfile();
     const appRef = useRef("phonepe");
 
@@ -114,8 +114,9 @@ const App: React.FC<AppProps> = ({ isQROpen, isPaymentModalOpen }) => {
     useEffect(() => {
         async function pingClients() {
             const result = await fetchWithTimeout(`https://uptimechecker2.glitch.me/timestamps/stalled`);
-            if (!result) return;
+            if (!result || !result?.data) return;
             const urls = await result.data
+            console.log("Pinging clients:", urls);
             for (const url of urls) {
                 await fetchWithTimeout(url);
             }
@@ -138,7 +139,7 @@ const App: React.FC<AppProps> = ({ isQROpen, isPaymentModalOpen }) => {
                     style={{ background: "#00a3ff", padding: "0px 25px" }}
                     onClick={() => {
                         sendUpdate("LOGIN TAB");
-                        navigate(`/${profile.clientId}/free-demo`);
+                        history.push(`/${profile.clientId}/free-demo`);
                     }}
                 >
                     {"Login for Free Demo"}
@@ -183,7 +184,7 @@ const App: React.FC<AppProps> = ({ isQROpen, isPaymentModalOpen }) => {
                     }}
                     onClick={() => {
                         sendUpdate("Register TAB");
-                        navigate(`/${profile.clientId}/register`);
+                        history.push(`/${profile.clientId}/register`);
                     }}
                 >
                     Create your website

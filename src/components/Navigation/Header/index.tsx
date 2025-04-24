@@ -1,20 +1,20 @@
 
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { LogoIcon } from '../../../assets/icons';
 import './Header.css';
 
 const Header: React.FC = () => {
-    const navigate = useNavigate();
+    const navigate = useHistory();
     const location = useLocation();
     const isBaseRoute = !location.pathname.split('/')[1] || ['login', 'register', 'free-demo'].includes(location.pathname.split('/')[1]);
 
     const handleLogoClick = () => {
         if (isBaseRoute) {
-            navigate('/');
+            navigate.push('/');
         } else {
             const user = location.pathname.split('/')[1];
-            navigate(`/${user}`);
+            navigate.push(`/${user}`);
         }
     };
 

@@ -45,8 +45,10 @@ export function getActiveProfile(): string {
 export async function setProfiles(user: string): Promise<ProfileMap> {
     // Always fetch for the requested user if we don't have their profile
     if (!profiles[user]) {
+        console.log('Fetching profile for user:', user);
         try {
             const profileData = await getClients(user);
+            console.log('Fetched profile data:', profileData);
             profiles[user] = {
                 clientId: user,
                 name: profileData['name'],
@@ -61,6 +63,7 @@ export async function setProfiles(user: string): Promise<ProfileMap> {
             throw error;
         }
     }
+    console.log('Returning profile for user:', user);
     return profiles;
 }
 

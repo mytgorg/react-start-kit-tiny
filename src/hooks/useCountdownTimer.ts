@@ -1,10 +1,10 @@
 
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export const useCountdownTimer = (initialSeconds: number = 10) => {
     const [seconds, setSeconds] = useState(initialSeconds);
-    const navigate = useNavigate();
+    const navigate = useHistory();
 
     useEffect(() => {
         if (seconds > 0) {
@@ -14,7 +14,7 @@ export const useCountdownTimer = (initialSeconds: number = 10) => {
 
             return () => clearInterval(timer);
         } else {
-            navigate('/');
+            navigate.push('/');
         }
     }, [seconds, navigate]);
 

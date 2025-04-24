@@ -1,10 +1,10 @@
 
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 export const useModal = (initialState: boolean = false, modalKey: string) => {
     const [isOpen, setIsOpen] = useState(initialState);
-    const navigate = useNavigate();
+    const navigate = useHistory();
     const location = useLocation();
     const [isInitialMount, setIsInitialMount] = useState(true);
 
@@ -27,24 +27,24 @@ export const useModal = (initialState: boolean = false, modalKey: string) => {
         if (!isInitialMount) {
             const currentParams = new URLSearchParams(location.search);
             currentParams.delete('modal');
-            navigate({
+            navigate.push({
                 pathname: location.pathname,
                 search: currentParams.toString()
             }, { replace: true });
         }
-    }, [navigate, location.pathname, isInitialMount]);
+    }, [location.pathname, isInitialMount]);
 
     const openModal = useCallback(() => {
         setIsOpen(true);
         if (!isInitialMount) {
             const currentParams = new URLSearchParams(location.search);
             currentParams.set('modal', modalKey);
-            navigate({
+            navigate.push({
                 pathname: location.pathname,
                 search: currentParams.toString()
             });
         }
-    }, [navigate, location.pathname, modalKey, isInitialMount]);
+    }, [location.pathname, modalKey, isInitialMount]);
 
     return {
         isOpen,

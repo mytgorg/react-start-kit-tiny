@@ -1,0 +1,15 @@
+{
+  "short_name": "Shruthi Payment",
+  "name": "Pay to Shruthie Reddy",
+  "icons": [
+    {
+      "src": "ReddyGirl.jpg",
+      "type": "image/jpg",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

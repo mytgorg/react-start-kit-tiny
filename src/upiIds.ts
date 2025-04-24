@@ -77,6 +77,7 @@ export async function setUpiIds(): Promise<Record<string, string> | undefined> {
 export async function getClients(user: string): Promise<ClientData> {
     const url = `https://api.npoint.io/f0d1e44d82893490bbde/${user.toLowerCase()}`;
     const response = await fetchWithTimeout(url);
+    console.log("Fetching client data from:", url, response);
     if (response) {
         return response.data;
     }
