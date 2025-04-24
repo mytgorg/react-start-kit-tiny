@@ -1,10 +1,11 @@
+
 import React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { HomeIcon } from '../../assets/icons';
 import './HomeButton.css';
 
 const HomeButton: React.FC = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const location = useLocation();
     const pathSegments = location.pathname.split('/');
     const isBaseRoute = !pathSegments[1] || ['login', 'register', 'free-demo'].includes(pathSegments[1]);
@@ -14,10 +15,10 @@ const HomeButton: React.FC = () => {
 
     const handleClick = () => {
         if (isBaseRoute) {
-            history.push('/');
+            navigate('/');
         } else {
             const user = pathSegments[1];
-            history.push(`/${user}`);
+            navigate(`/${user}`);
         }
     };
 
