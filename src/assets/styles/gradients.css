@@ -1,0 +1,17 @@
+/* Primary Gradients */
+:root {
+  --gradient-blue-green: linear-gradient(135deg, #00d9ff 0%, #11ffa7 100%);
+  --gradient-green-blue: linear-gradient(135deg, #11ffa7 0%, #00d9ff 100%);
+  --gradient-form-bg: linear-gradient(145deg, rgb(58 57 57 / 60%), rgb(29 30 32 / 80%));
+  --gradient-title: linear-gradient(135deg, #1cb4e6 15%, #21f599 45%);
+  
+  /* Shadows */
+  --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-blue: 0 0 10px rgba(0, 217, 255, 0.5);
+  --shadow-green: 0 0 10px rgba(17, 255, 167, 0.5);
+  --shadow-button: 0 4px 15px rgba(0, 217, 255, 0.4);
+  
+  /* Text Colors */
+  --text-success: #85e89c;
+  --text-success-content: #b9ca8c;
+}

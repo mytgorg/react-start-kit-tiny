@@ -1,0 +1,1 @@
+export { parseTGMsg } from './telegram';

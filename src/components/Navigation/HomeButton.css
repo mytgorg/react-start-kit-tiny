@@ -1,0 +1,26 @@
+.home-button {
+    position: fixed;
+    right: 5vw;
+    top: 25px;
+    width: 35px;
+    height: 35px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.home-button:hover {
+    color: var(--text-light);
+}
+
+.home-button svg {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}

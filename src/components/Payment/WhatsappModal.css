@@ -1,0 +1,188 @@
+.whatsappModal .modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 3.5rem 1rem 1rem 1rem;
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.whatsappModal .modal-dialog {
+    position: relative;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    min-height: 100%;
+    animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.whatsappModal .modal-content {
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: none;
+    animation: modalContentFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center center;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.whatsappModal-content {
+    background: #fff !important;
+    color: #000;
+    font-weight: 600;
+}
+
+.whatsappModal .modal-body {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.whatsappModal .button {
+    background: linear-gradient(135deg, #25D366, #21e248);
+    width: 100%;
+    padding: 0rem;
+    border-radius: 0 0 12px 12px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.whatsappModal .button:hover {
+    background: linear-gradient(135deg, #22c35c, #1ed23e);
+}
+
+.whatsappModal .button:active {
+    transform: translateY(1px);
+}
+
+.whatsappModal h5{
+    font-size: 15px;
+}
+
+.btn-close {
+    position: absolute;
+    right: var(--spacing-sm);
+    top: var(--spacing-sm);
+    background: var(--modal-close-bg);
+    border-radius: 50%;
+    width: var(--modal-close-size);
+    height: var(--modal-close-size);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--modal-option-border);
+    color: var(--text-light);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.btn-close:hover {
+    background: var(--modal-close-hover);
+    opacity: 1;
+    transform: rotate(90deg) scale(1.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.whatsappModal .modal-close-btn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: #666;
+    cursor: pointer;
+}
+
+.whatsappModal .modal-close-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+    color: #000;
+}
+
+.whatsappModal .modal-close-btn::before,
+.whatsappModal .modal-close-btn::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 1px;
+}
+
+.whatsappModal .modal-close-btn::before {
+    transform: rotate(45deg);
+}
+
+.whatsappModal .modal-close-btn::after {
+    transform: rotate(-45deg);
+}
+
+.whatsappModal {
+    padding: 1rem;
+}
+
+@keyframes modalSlideIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes modalContentFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(10px) rotateX(-10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0) rotateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .whatsappModal .modal-dialog,
+    .whatsappModal .modal-content {
+        animation: none;
+    }
+}

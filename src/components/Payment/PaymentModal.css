@@ -1,0 +1,126 @@
+.payment-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family-base);
+}
+
+.payment-modal .modal-content {
+    text-align: center;
+    background: var(--gradient-dark);
+    color: var(--text-light);
+    margin: auto;
+    animation: modalContentFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center center;
+}
+
+.payment-modal .modal-dialog {
+    animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.payment-modal__header {
+    border-bottom: none;
+    padding: var(--spacing-sm);
+}
+
+/* Payment Select Section */
+.payment-select {
+    width: 100%;
+}
+
+.payment-select__card {
+    padding: 0;
+    min-width: 90%;
+    border: var(--modal-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--modal-radius-lg);
+    background: var(--gradient-dark);
+}
+
+.payment-select__header {
+    width: 100%;
+    padding: 0;
+}
+
+.payment-select__title {
+    font-weight: bolder;
+    font-size: var(--modal-title-size);
+    background: var(--gradient-primary);
+    border-radius: var(--modal-radius-header);
+    padding: var(--spacing-sm);
+    color: var(--text-light);
+    margin: 0;
+}
+
+.payment-select__form {
+    width: 100%;
+    padding: var(--spacing-xs);
+    color: #000000;
+    border-radius: var(--border-radius-lg);
+}
+
+.payment-select__options {
+    width: 100%;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-select__option {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    width: var(--modal-option-width);
+    margin: 2px 0;
+}
+
+.payment-select__option input {
+    width: var(--modal-input-width);
+    padding-left: 3%;
+}
+
+.payment-select__option label {
+    font-weight: bolder;
+    display: inline-flex;
+    margin: 3px;
+    width: var(--modal-label-width);
+    font-size: medium;
+}
+
+.payment-select__payment-options {
+    margin: 5%;
+}
+
+@keyframes modalSlideIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes modalContentFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(10px) rotateX(-10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0) rotateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .payment-modal .modal-dialog,
+    .payment-modal .modal-content {
+        animation: none;
+    }
+}

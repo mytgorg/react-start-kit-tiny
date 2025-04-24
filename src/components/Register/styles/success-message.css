@@ -1,0 +1,297 @@
+.success-message {
+    text-align: center;
+    padding: var(--spacing-md);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.success-message__title {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    background: var(--gradient-title);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.3px;
+}
+
+.success-message__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.success-message__content img.tick {
+    width: 50px;
+    height: 50px;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.success-message__content h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    background: linear-gradient(135deg, var(--color-app), #44edb8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 0.5s ease-out 0.2s both;
+}
+
+.success-message__content p {
+    color: var(--text-success-content);
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    animation: fadeInUp 0.5s ease-out 0.4s both;
+}
+
+.success-message__button {
+    background: var(--gradient-blue-green);
+    color: #000000;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    margin-top: var(--spacing-sm);
+    min-width: 120px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.success-message__button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-button);
+}
+
+.home-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, var(--color-app), #44edb8);
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease-out 0.6s both;
+}
+
+.home-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(68, 237, 184, 0.3);
+}
+
+.home-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+.image-container {
+    margin: var(--spacing-md) 0;
+    position: relative;
+}
+
+.sample-image {
+    max-width: 100%;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-primary);
+}
+
+.blinking-arrow {
+    position: absolute;
+    font-size: 38px;
+    color: #44edb8;
+    animation: blink-and-bounce 1.5s infinite;
+    /* Position just below the image */
+    bottom: -5vh;
+    left: 29%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-shadow: 0 0 10px rgba(68, 237, 184, 0.5);
+    pointer-events: none;
+}
+
+@keyframes blink-and-bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+        opacity: 0.5;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.yesItsMe {
+    color: var(--color-app);
+    font-weight: 600;
+}
+
+.success-message h1 {
+   font-size: 30px;
+}
+
+.register-form__verify {
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 0.8rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.register-form__verify h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--color-app), #44edb8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.register-form__verify .image-container {
+    position: relative;
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.register-form__verify .sample-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.register-form__verify p {
+    color: var(--text-success-content);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+.proceed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.register-form__submit {
+    background: linear-gradient(135deg, var(--color-app), #44edb8);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+}
+
+.register-form__submit:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(68, 237, 184, 0.3);
+}
+
+.register-form__submit:disabled {
+    background: linear-gradient(135deg, #808080, #a0a0a0);
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+.register-form__error.visible {
+    color: #ff6b6b;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    animation: shakeAndFadeIn 0.5s ease-out, pulseError 2s ease-in-out infinite;
+    opacity: 1;
+    visibility: visible;
+    display: block;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
+}
+
+.register-form__error.hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateZ(0);
+}
+
+@keyframes shakeAndFadeIn {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    20% {
+        transform: translateX(-10px);
+        opacity: 0.5;
+    }
+    40% {
+        transform: translateX(10px);
+        opacity: 0.7;
+    }
+    60% {
+        transform: translateX(-5px);
+        opacity: 0.8;
+    }
+    80% {
+        transform: translateX(5px);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

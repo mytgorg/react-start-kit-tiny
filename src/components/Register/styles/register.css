@@ -1,0 +1,115 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.register-body {
+    width: 100%;
+}
+
+.register__header {
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.register__title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    background: var(--gradient-blue-green);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+    letter-spacing: 0.5px;
+    background-size: 200% auto;
+}
+
+.register__subtitle {
+    font-size: var(--form-subtitle-size);
+    background: var(--form-gradient-subtitle);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: var(--spacing-xs);
+    letter-spacing: 0.3px;
+}
+
+.register-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: none;
+}
+
+/* Form Steps Progress */
+.register__progress {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.progress-step {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-step.active {
+    background: var(--gradient-blue-green);
+    box-shadow: var(--shadow-blue);
+}
+
+.progress-step.completed {
+    background: var(--gradient-green-blue);
+    box-shadow: var(--shadow-green);
+}
+
+/* Success Message */
+.success-message {
+    text-align: center;
+    padding: var(--spacing-md);
+    color: var(--text-success);
+}
+
+.success-message__title {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    background: var(--gradient-title);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.3px;
+}
+
+.success-message__content {
+    margin: var(--spacing-sm) 0;
+    color: var(--text-success-content);
+}
+
+.success-message__button {
+    background: var(--gradient-blue-green);
+    color: #000000;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    margin-top: 15px;
+    min-width: 120px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.success-message__button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-button);
+}

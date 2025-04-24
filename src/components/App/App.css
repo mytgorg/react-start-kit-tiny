@@ -1,0 +1,160 @@
+.app {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+.app__header {
+    background: var(--background-dark);
+    display: flex;
+    padding-top: 3vh;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: var(--text-light);
+}
+
+.app__button-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.app__message {
+    color: var(--text-accent);
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.app__service-name {
+    /* font-family: cursive; */
+    font-size: 12px;
+    margin-bottom: 9px;
+    margin-left: 27vw;
+}
+
+.app__content {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 10px;
+}
+
+/* Button Styles */
+.button--primary {
+    background: var(--gradient-primary);
+}
+
+.button--secondary {
+    background: var(--secondary-color);
+}
+
+.button--danger {
+    background: firebrick;
+    padding: 0 20px;
+    font-size: 73%;
+}
+
+.app .button--primary {
+    background: var(--gradient-primary);
+}
+
+.app .button--secondary {
+    background: var(--secondary-color);
+}
+
+.app .button--danger {
+    background: firebrick;
+    padding: 0 20px;
+    font-size: 73%;
+}
+
+.App {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: auto;
+}
+
+h6 {
+    color: hwb(72 39% 0%);
+    font-weight: bolder;
+    margin: 0px 0px 5px 0px;
+    font-size: large;
+}
+
+.msgBtn {
+    margin-bottom: 2vh;
+    margin-top: 1.5vh;
+}
+
+.btnGrp {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+/* Button Base Style Override */
+.app .button {
+    font-size: var(--font-size-base);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Specific Button Styles with higher specificity */
+.app .button--login {
+    background: #00a3ff !important;
+    padding: 0px 25px;
+}
+
+.app .button--link {
+    color: white;
+    text-decoration: none;
+}
+
+.app .button--telegram {
+    background: #00a3ff !important;
+}
+
+.app .button--register {
+    background: firebrick !important;
+    padding: 0px 20px;
+    font-size: 73%;
+}
+
+.app .button--report {
+    background: firebrick !important;
+    padding: 0px 20px;
+}
+
+/* Button Image Styles */
+.button-image {
+    width: 30px;
+    margin: -4px 4px 0px -3px;
+}
+
+.button-image--qr {
+    width: 20px;
+    margin: -4px 4px 0px -3px;
+}
+
+.button-image--whatsapp {
+    width: 28px;
+    margin: -4px 2px 0 -3px;
+}
+
+.button-image--telegram {
+    width: 24px;
+    margin: -4px 1px 0 -3px;
+}

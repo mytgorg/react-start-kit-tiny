@@ -1,0 +1,38 @@
+/bundle.js             /static/js/main.*.js   200
+/*/bundle.js           /static/js/main.*.js   200
+/main.js              /static/js/main.*.js   200
+/*/main.js            /static/js/main.*.js   200
+/main.css             /static/css/main.*.css  200
+/*/main.css           /static/css/main.*.css  200
+
+# Handle static assets directory
+/static/*             /static/:splat  200
+/*/static/*           /static/:splat  200
+
+# Handle manifest and other root files
+/manifest.json        /manifest.json 200
+/*/manifest.json      /manifest.json 200
+
+# Handle any JS/CSS files with dynamic hashes
+/*.js                 /static/js/main.*.js    200
+/*.css                /static/css/main.*.css  200
+/*/*.js               /static/js/main.*.js    200
+/*/*.css              /static/css/main.*.css  200
+
+# Handle media files and routes
+/*.jpg     /index.html   200
+/*.png     /index.html   200
+/*.svg     /index.html   200
+/*/*.jpg   /index.html   200
+/*/*.png   /index.html   200
+/*/*.svg   /index.html   200
+
+# Handle app routes
+/*/free-demo    /index.html   200
+/*/paid-demo    /index.html   200
+/profile/*      /index.html   200
+/payment/*      /index.html   200
+/register       /index.html   200
+
+# Catch all for SPA
+/*    /index.html   200

@@ -1,0 +1,58 @@
+/* Modal Layout */
+.modal {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-right: 0 !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    backdrop-filter: blur(20px);
+}
+
+.modal-dialog {
+    margin: 1.75rem auto;
+    max-width: min(calc(100vw - 32px), 400px);
+    width: 100%;
+    min-height: calc(100vh - 3.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 280px;
+    margin: 0;
+    width: 100%;
+    max-height: min(calc(100vh - 3.5rem), 600px);
+    position: relative;
+    overflow: visible;
+    border-radius: 16px;
+    background: var(--gradient-dark);
+    border: 1px solid #b0b0b0;
+    border-style: groove;
+}
+
+/* Modal Scrollbar */
+.modal *::-webkit-scrollbar {
+    display: none;
+}
+
+/* Modal Overlay */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+}
+
+.modal-backdrop.show {
+    opacity: 0.85;
+}
+
+/* Body Lock */
+.modal-open {
+    overflow: hidden !important;
+    height: 100vh;
+    padding-right: 0 !important;
+    position: fixed;
+    width: 100%;
+}

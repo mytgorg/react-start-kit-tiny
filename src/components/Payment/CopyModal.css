@@ -1,0 +1,498 @@
+@import '../../assets/styles/modals.css';
+
+.copy-modal .modal-dialog {
+    margin: 1.75rem auto;
+    max-width: var(--modal-max-width);
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 3.5rem);
+}
+
+.copy-modal .modal-content {
+    background: var(--modal-backdrop);
+    border: 1px solid var(--modal-option-border);
+    border-radius: var(--modal-radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-primary);
+    animation: modalAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: var(--modal-content-width);
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.copy-modal .modal-header {
+    border-bottom: none;
+    padding: 23px 0 0 0;
+    overflow: visible;
+    display: block;
+}
+
+.modal-close-btn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(90deg) scale(1.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 1);
+}
+.modal-close-btn::before,
+.modal-close-btn::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 1px;
+}
+
+.modal-close-btn::before {
+    transform: rotate(45deg);
+}
+
+.modal-close-btn::after {
+    transform: rotate(-45deg);
+}
+
+.copy-modal__content {
+    padding: var(--spacing-md);
+    text-align: center;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1.1rem;
+    animation: fadeIn 0.3s ease-out;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modalAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.96) translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes borderGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 400% 50%;
+    }
+}
+
+.copy-modal__success {
+    text-align: center;
+    padding: var(--spacing-md) 0 var(--spacing-sm);
+    overflow: visible;
+    animation: successAppear 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.copied-span {
+    color: var(--color-copied);
+}
+
+.clipboard-span {
+    color: var(--color-clipboard);
+}
+
+.app-span {
+    color: var(--color-app);
+}
+
+.copy-modal__success-title {
+    line-height: 1.4;
+    color: var(--text-light);
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: clamp(16px, 4vw, 18px);
+    font-weight: 600;
+}
+
+.copy-modal__success img {
+    width: 24px;
+    margin-left: var(--spacing-xs);
+    vertical-align: middle;
+}
+
+.copy-modal__success p {
+    margin: var(--spacing-sm) 0;
+    color: var(--text-light);
+    font-size: clamp(14px, 3.5vw, 16px);
+}
+
+@keyframes iconPop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.copy-modal__upi-options {
+    background: var(--modal-backdrop);
+    border-radius: var(--border-radius-lg);
+    max-width: 400px;
+    margin: var(--spacing-sm) auto;
+    overflow: hidden;
+    max-height: none;
+    width: 100%;
+    border: 1px solid var(--modal-option-border);
+    box-shadow: var(--shadow-primary);
+}
+
+.copy-modal__option {
+    display: flex;
+    align-items: center;
+    height: var(--modal-option-height);
+    justify-content: space-between;
+    padding: 0 var(--spacing-sm);
+    border-bottom: 1px solid var(--modal-option-border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.copy-modal__option:hover {
+    background: var(--modal-close-bg);
+    transform: translateX(4px);
+}
+
+.copy-modal__option:active {
+    transform: scale(0.98) translateX(4px);
+}
+
+.copy-modal__option:last-child {
+    border-bottom: none;
+}
+
+.copy-modal__option span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--text-light);
+    font-weight: 500;
+    width: 120px;
+    font-size: clamp(14px, 3.5vw, 16px);
+}
+
+.copy-modal__option svg {
+    width: 18px;
+    height: 18px;
+    color: var(--color-text-secondary);
+}
+
+.copy-modal__option .purple {
+    color: var(--color-purple);
+}
+
+.copy-modal__option .blue {
+    color: var(--color-blue);
+}
+
+.copy-modal__option .yellow {
+    color: var(--color-yellow);
+}
+
+.copy-modal__option:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.copy-modal__option:hover:after {
+    transform: translateX(100%);
+}
+
+.copy-modal__option:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: -2px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.copy-modal__button {
+    width: auto;
+    min-width: 120px;
+    height: var(--modal-button-height);
+    background: var(--modal-button-gradient);
+    border: none;
+    border-radius: var(--border-radius-lg);
+    color: var(--text-light);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    box-shadow: var(--shadow-primary);
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.copy-modal__button:disabled {
+    background: var(--modal-button-disabled);
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+.copy-modal__button:disabled:hover {
+    background: var(--modal-button-disabled);
+    transform: none;
+    box-shadow: none;
+}
+
+.copy-modal__button:disabled:before {
+    display: none;
+}
+
+.copy-modal__button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.copy-modal__button:hover:not(:disabled) {
+    background: var(--modal-button-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-button);
+}
+
+.copy-modal__button:hover:before {
+    transform: translateX(0);
+}
+
+.copy-modal__button:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+.copy-modal__button:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+.copy-modal__success button {
+    width: auto;
+    min-width: 120px;
+    height: 40px;
+    background: #555555;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0 20px;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.copy-modal__success button:hover {
+    background: #166534;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(21, 128, 61, 0.25);
+}
+
+.copy-modal__success button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+.copy-modal__success svg {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.open-upi-button {
+    width: auto;
+    min-width: 140px;
+    height: var(--modal-button-height);
+    background: var(--gradient-success);
+    border: none;
+    border-radius: var(--border-radius-md);
+    color: var(--text-light);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0 var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.open-upi-button svg {
+    transition: transform 0.3s ease;
+}
+
+.open-upi-button:hover {
+    background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(21, 128, 61, 0.3);
+}
+
+.open-upi-button:hover svg {
+    transform: translate(2px, -2px);
+}
+
+.open-upi-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(21, 128, 61, 0.2);
+}
+
+
+
+.copy-modal {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    perspective: 1000px;
+    -webkit-font-smoothing: antialiased;
+}
+
+@keyframes successAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .copy-modal .modal-content,
+    .copy-modal__success,
+    .copy-modal__content,
+    .copy-modal .modal-header .close {
+        animation: none;
+        transition: none;
+    }
+
+    .copy-modal__option:hover {
+        transform: none;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .copy-modal__option:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateX(4px) scale(1.02);
+    }
+
+    .copy-modal__button:hover {
+        transform: translateY(-2px) translateZ(0);
+    }
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    .copy-modal .modal-content {
+        background: linear-gradient(145deg, rgba(26, 26, 26, 0.8), rgba(36, 36, 36, 0.8));
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Use animation utility classes */
+.modal-content {
+    @extend .animate-modal-appear;
+}
+
+.copy-modal__success {
+    @extend .animate-success;
+}
+
+.copy-modal__content {
+    @extend .animate-fade-in-up;
+}
+
+.copy-modal__success img {
+    @extend .animate-icon-pop;
+}
+
+/* Support for browsers without backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+    .copy-modal .modal-content {
+        background: var(--background-dark);
+    }
+}

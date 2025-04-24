@@ -1,0 +1,163 @@
+.dynamic-qr {
+    justify-content: center;
+    display: flex;
+    position: relative;
+    margin: 3px;
+    border-radius: 8px;
+    width: 100%;
+    padding: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(59, 130, 246, 0.1);
+}
+
+.dynamic-qr__select {
+    height: 35px;
+    margin: 2px;
+    padding: 2px 12px;
+    font-weight: 600;
+    text-align-last: center;
+    background: #18191b;
+    border-radius: 5px;
+    appearance: none;
+    color: #6bf0ab;
+    padding-right: 30px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23c0c0c0' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 5px) center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    isolation: isolate;
+}
+
+.dynamic-qr__select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3),
+        0 0 15px rgba(59, 130, 246, 0.3),
+        inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.dynamic-qr__select option {
+    background-color: #c9d0e3;
+    color: #000000;
+}
+
+.dynamic-qr__code {
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    padding: var(--spacing-xs);
+    margin: 0px;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(59, 130, 246, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.dynamic-qr__title {
+    background: linear-gradient(90deg, #ffd700, #c0c0c0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 13px;
+    margin: 0;
+    padding: 3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.border-line {
+    background: rgb(0, 0, 0);
+    padding: 2px;
+    border: solid 2px white;
+    justify-content: center;
+    display: flex;
+}
+
+.border {
+    justify-content: center;
+    display: flex;
+}
+
+.dynamic-qr__select::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(115deg,
+            transparent,
+            rgba(255, 215, 0, 0.1),
+            rgba(192, 192, 192, 0.1),
+            transparent);
+    transform: rotate(45deg);
+    transition: 0.6s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dynamic-qr__select:hover::before {
+    opacity: 1;
+    animation: shine 1.5s infinite;
+}
+
+.dynamic-qr__select::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(90deg, #ffd700, #c0c0c0);
+    border-radius: 6px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.dynamic-qr__select:hover::after {
+    opacity: 0.2;
+}
+
+.dynamic-qr__select:focus::after {
+    opacity: 0.3;
+}
+
+.dynamic-qr__select:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3),
+        0 0 15px rgba(59, 130, 246, 0.3),
+        inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.dynamic-qr__select:active::before,
+.dynamic-qr__select:focus::before {
+    animation: none;
+}
+
+@keyframes shine {
+    0% {
+        transform: rotate(45deg) translateX(-120%);
+    }
+
+    100% {
+        transform: rotate(45deg) translateX(120%);
+    }
+}
+
+@property --mouse-x {
+    syntax: '<percentage>';
+    initial-value: 50%;
+    inherits: false;
+}
+
+@property --mouse-y {
+    syntax: '<percentage>';
+    initial-value: 50%;
+    inherits: false;
+}

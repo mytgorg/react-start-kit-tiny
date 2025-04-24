@@ -1,0 +1,173 @@
+:root {
+  --gradient-light: linear-gradient(to right, #f7f7f7, #ffffff);
+  --gradient-primary: radial-gradient(100% 100% at 100% 0%, #5edb4e 0%, rgb(2, 204, 39) 100%);
+  --text-light: #ffffff;
+  --text-accent: #cce225;
+  --border-radius-sm: 5px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 15px;
+  --border-radius-xlg: 25px;
+  --box-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-family-mono: monospace;
+
+  /* Profile specific variables */
+  --profile-image-shadow: 0 0 19px 6px #666;
+  --profile-name-color: rgb(0 255 236);
+  --profile-link-color: aqua;
+  --profile-border-color: #a6a6a6;
+  --profile-border-image: #b4b4b4;
+  
+   /* Responsive sizes */
+   --profile-image-size: 85%;
+   --profile-name-size: var(--font-size-2xl);
+   --profile-info-size: var(--font-size-base);
+   --profile-icon-size: var(--font-size-lg);
+   --profile-status-icon-size: var(--font-size-xl);
+ 
+  /* Navigation variables */
+  --background-dark: #1a1a1a;
+  --nav-menu-bg: #434343;
+  --nav-menu-report: firebrick;
+  --nav-item-outline: #aaa;
+    
+  /* Navigation sizes */
+  --burger-button-size: 30px;
+  --burger-position-left: 5vw;
+  --burger-position-top: 4vh;
+  --nav-menu-font-size: var(--font-size-base);
+
+  /* Loading Spinner variables */
+  --spinner-primary: var(--color-green);
+  --spinner-secondary: var(--color-blue);
+  --spiiner-tertiary: var(--color-yellow);
+  --spinner-: var(--color-green);
+  --spinner-shadow: rgba(26, 210, 118, 0.637);
+  --spinner-size: 50px;
+  --spinner-border: 3px;
+    
+  /* Animations */
+  --animation-spin: spin 1s linear infinite;
+  --animation-spin-slow: spin 3s linear infinite;
+  --animation-spin-medium: spin 1.5s linear infinite;
+  --animation-pulse: pulse 1.5s ease-in-out infinite;
+
+  /* Modal variables */
+  --modal-border: 3px groove var(--profile-border-color);
+  --modal-radius-lg: 20px;
+  --modal-radius-header: 12px 12px 0 0;
+  --modal-title-size: var(--font-size-lg);
+  --modal-option-width: 80%;
+  --modal-input-width: 25px;
+  --modal-label-width: 120px;
+
+  /* QR specific colors */
+  --qr-select-bg: #18191b;
+  --qr-select-text: #6bf0ab;
+  --qr-option-bg: #c9d0e3;
+  --qr-gradient-title: linear-gradient(90deg, #ffd700, #c0c0c0);
+    
+  /* QR specific shadows */
+  --qr-shadow-container: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 15px rgba(59, 130, 246, 0.1);
+  --qr-shadow-select: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+  --qr-shadow-focus: 0 0 0 2px rgba(255, 215, 0, 0.3), 0 0 15px rgba(59, 130, 246, 0.3), inset 0 1px 3px rgba(0, 0, 0, 0.4);
+    
+  /* QR specific sizes */
+  --qr-select-height: 35px;
+  --qr-select-width: 75%;
+  --qr-title-size: var(--font-size-sm);
+    
+  /* Custom properties for hover effect */
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+
+  /* Copy Modal specific variables */
+  --modal-backdrop: linear-gradient(145deg, rgba(26, 26, 26, 0.8), rgba(36, 36, 36, 0.8));
+  --modal-button-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --modal-button-hover: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  --modal-button-disabled: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  --modal-success-button: #15803d;
+  --modal-close-bg: rgba(255, 255, 255, 0.08);
+  --modal-close-hover: rgba(255, 255, 255, 0.15);
+  --modal-option-border: rgba(255, 255, 255, 0.08);
+    
+  /* Copy Modal sizes */
+  --modal-close-size: 36px;
+  --modal-button-height: 44px;
+  --modal-option-height: 56px;
+  --modal-max-width: min(calc(100vw - 32px), 400px);
+  --modal-content-width: 220px;
+    
+  /* Copy Modal colors */
+  --color-purple: #a78bfa;
+  --color-blue: #00a3ff;
+  --color-yellow: #e3ff0f;
+  --color-green: #1fdb0b;
+  --color-text-secondary: #94a3b8;
+  --color-copied: #4b8fca;
+  --color-clipboard: #cab059;
+  --color-app: #73a1d9;
+
+  /* Error specific variables */
+  --error-border: #ff0000;
+  --error-bg: #fff5f5;
+  --error-text: #666666;
+  --error-details-bg: #f8f9fa;
+  --error-button-hover: #0056b3;
+
+  /* QR Card specific variables */
+  --qr-gradient-text: linear-gradient(to right, #ffffff, #ffd700 20%, #ffffff 40%, #ffd700 60%, #ffffff);
+  --qr-gradient-header-line: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.8), transparent);
+  --qr-gradient-label: linear-gradient(to right, #ffd700, #c0c0c0, #ffd700);
+  --qr-gradient-button: linear-gradient(145deg, #1e40af, #1e3a8a);
+  --qr-gradient-button-hover: linear-gradient(145deg, #2563eb, #1e40af);
+  --qr-gradient-shine: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), rgba(192, 192, 192, 0.2), transparent);
+    
+  /* QR Card colors */
+  --qr-input-bg: rgba(15, 23, 42, 0.8);
+  --qr-input-border: rgba(192, 192, 192, 0.3);
+  --qr-input-text: #ffd700;
+    
+  /* QR Card shadows */
+  --qr-input-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+  --qr-button-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 215, 0, 0.1);
+  --qr-button-shadow-hover: 0 3px 6px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 215, 0, 0.2), 0 0 15px rgba(59, 130, 246, 0.3);
+
+  /* Form specific variables */
+  --form-gradient-title: linear-gradient(135deg, #00d9ff 0%, #11ffa7 100%);
+  --form-gradient-subtitle: linear-gradient(135deg, #e2e2e2 0%, #a0a0a0 100%);
+  --form-gradient-error: linear-gradient(135deg, #ff4444 0%, #ff8f8f 100%);
+  --form-gradient-success: linear-gradient(135deg, #85e89c 0%, #11ffa7 100%);
+    
+  /* Form colors */
+  --form-bg: rgba(35, 35, 35, 0.8);
+  --form-border: rgba(0, 217, 255, 0.1);
+  --form-focus: #00d9ff;
+  --form-valid: #11ffa7;
+  --form-invalid: #ff4444;
+    
+  /* Form sizes */
+  --form-input-height: 60px;
+  --form-otp-size: 60px;
+  --form-submit-width: 200px;
+    
+  /* Form text sizes */
+  --form-title-size: var(--font-size-2xl);
+  --form-subtitle-size: var(--font-size-base);
+  --form-input-size: var(--font-size-base);
+  --form-otp-size: 3.5rem;
+  --form-error-size: var(--font-size-xs);
+
+  /* Font sizes */
+  --font-size-xs: clamp(0.2rem, 3vw, 0.5rem);
+  --font-size-sm: clamp(0.5rem, 3.5vw, 0.75rem);
+  --font-size-base: clamp(0.5rem, 4.0vw, 1rem);
+  --font-size-lg: clamp(0.5rem, 4.5vw, 1.2rem);
+  --font-size-xl: clamp(0.5rem, 4.5vw, 1.5rem);
+  --font-size-2xl: clamp(0.5rem, 5vw, 1.8rem);
+}

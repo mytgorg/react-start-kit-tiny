@@ -1,0 +1,52 @@
+.error-boundary {
+    padding: var(--spacing-md);
+    margin: var(--spacing-md);
+    border: 1px solid var(--error-border);
+    border-radius: var(--border-radius-md);
+    background-color: var(--error-bg);
+    text-align: center;
+}
+
+.error-boundary__title {
+    color: var(--error-border);
+    margin-bottom: var(--spacing-sm);
+}
+
+.error-boundary__message {
+    margin-bottom: var(--spacing-md);
+    color: var(--error-text);
+}
+
+.error-boundary__button {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--text-accent);
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.error-boundary__button:hover {
+    background-color: var(--error-button-hover);
+}
+
+.error-boundary__details {
+    margin-top: var(--spacing-md);
+    text-align: left;
+}
+
+.error-boundary__details summary {
+    cursor: pointer;
+    color: var(--error-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+.error-boundary__details pre {
+    background-color: var(--error-details-bg);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    overflow-x: auto;
+    font-size: 0.875rem;
+    color: var(--error-text);
+}
