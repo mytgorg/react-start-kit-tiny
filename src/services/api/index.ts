@@ -1,9 +1,8 @@
 
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { delay } from '../../utils/async';
 
 // Create a correct type definition for Vite's import.meta.env
-// This is needed for TypeScript to recognize the env property
 declare global {
   interface ImportMeta {
     env: {
