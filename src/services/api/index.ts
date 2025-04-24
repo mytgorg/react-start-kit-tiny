@@ -2,12 +2,15 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { delay } from '../../utils/async';
 
-// Declare import.meta type for Vite environment variables
-interface ImportMeta {
-  env: {
-    VITE_API_URL?: string;
-    [key: string]: string | undefined;
-  };
+// Create a correct type definition for Vite's import.meta.env
+// This is needed for TypeScript to recognize the env property
+declare global {
+  interface ImportMeta {
+    env: {
+      VITE_API_URL?: string;
+      [key: string]: string | undefined;
+    }
+  }
 }
 
 export const api: AxiosInstance = axios.create({
