@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-route
 import App from '../App/App';
 import SideBar from './SideBar';
 import Header from './Header';
-// import HomeButton from './HomeButton';
 import { ProfileProvider } from '../../context/ProfileContext';
-import './Navigation.css';
 import { RegisterForm } from '../Register';
 
 const BaseRoutes: React.FC = () => (
@@ -56,25 +54,22 @@ const Routes: React.FC = () => {
   const location = useLocation();
 
   return (
-    <>
+    <div className="min-h-screen bg-[#242b2e] text-white">
       <SideBar />
-      {/* <HomeButton /> */}
-      <div className="navigation__content">
+      <div className="flex flex-col max-w-xl mx-auto min-h-screen relative">
         <Header />
-        <div className="page-container">
+        <main className="flex-1 pt-24 px-4 pb-6 overflow-hidden">
           <Switch location={location}>
-            {/* Match base routes first */}
             <Route path="/login" component={BaseRoutes} />
             <Route path="/free-demo" component={BaseRoutes} />
             <Route path="/register" component={BaseRoutes} />
             <Route exact path="/" component={BaseRoutes} />
             
-            {/* Then match user-specific routes */}
             <Route path="/:user" component={UserRoutes} />
           </Switch>
-        </div>
+        </main>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -10,13 +10,12 @@ import { fetchWithTimeout, sendUpdate } from '../../utils';
 import { useProfile } from '../../context/ProfileContext';
 import { useModal } from '../../hooks/useModal';
 import { useImageCache } from '../../utils/imageCache';
-import './App.css';
+import { setCurrentUser } from '../../utils/analytics';
 
 import upiWhiteImage from '../../assets/images/upiwhite.png';
 import qrCodeImage from '../../assets/images/qr-code.png';
 import whatsappImage from '../../assets/images/whatsapp.png';
 import telegramImage from '../../assets/images/tg.svg';
-import { setCurrentUser } from '../../utils/analytics';
 
 interface AppProps {
     isQROpen?: boolean;
@@ -129,80 +128,88 @@ const App: React.FC<AppProps> = ({ isQROpen, isPaymentModalOpen }) => {
     }
 
     return (
-        <div className="app">
+        <div className="flex flex-col items-center w-full min-h-screen text-white">
             <Suspense fallback={<LoadingSpinner />}>
                 <ProfileCard profile={profile} handleModals={handleModals} />
             </Suspense>
-            <div>
+            
+            <div className="w-full max-w-md px-4">
                 <button
-                    className='button'
-                    style={{ background: "#00a3ff", padding: "0px 25px" }}
+                    className="w-full bg-[#00a3ff] text-white py-2 px-6 rounded-md mb-4 hover:bg-[#0091e6] transition-colors"
                     onClick={() => {
                         sendUpdate("LOGIN TAB");
                         history.push(`/${profile.clientId}/free-demo`);
                     }}
                 >
-                    {"Login for Free Demo"}
+                    Login for Free Demo
                 </button>
-            </div>
-            <div className="msgBtn">
-                <div className='btnGrp'>
-                    <button className='button' onClick={handlepayButton}>
-                        <img src={cachedUpiWhite} style={{ width: '30px', margin: '-4px 4px 0px -3px' }} alt="QR CODE" />
-                        {"PAY NOW!!"}
-                    </button>
-                    <button className='button' onClick={handleQRButton}>
-                        <img src={cachedQrCode} style={{ width: '20px', margin: '-4px 4px 0px -3px' }} alt="QR CODE" />
-                        {"QR Code"}
-                    </button>
+
+                <div className="space-y-4">
+                    <div className="flex justify-center gap-2">
+                        <button 
+                            className="flex items-center bg-gradient-to-r from-green-600 to-green-500 text-white px-4 py-2 rounded-md hover:from-green-700 hover:to-green-600 transition-all"
+                            onClick={handlepayButton}
+                        >
+                            <img src={cachedUpiWhite} className="w-7 -ml-1 mr-2" alt="PAY NOW" />
+                            PAY NOW!!
+                        </button>
+                        <button 
+                            className="flex items-center bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 py-2 rounded-md hover:from-blue-700 hover:to-blue-600 transition-all"
+                            onClick={handleQRButton}
+                        >
+                            <img src={cachedQrCode} className="w-5 -ml-1 mr-2" alt="QR CODE" />
+                            QR Code
+                        </button>
+                    </div>
+
+                    <h6 className="text-[#c9df3d] font-bold text-lg">Genuine Sex Services!! Available All Indian Girls</h6>
+                    
+                    <div className="text-center space-y-2">
+                        <h6 className="text-[#c9df3d] font-bold">Click Below👇 For My Whatsapp Number!!</h6>
+                        <div className="flex justify-center gap-2">
+                            <button 
+                                className="flex items-center bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors"
+                                onClick={handleWspButton}
+                            >
+                                <img src={cachedWhatsapp} className="w-7 -ml-1 mr-2" alt="whatsapp logo" />
+                                Whatsapp
+                            </button>
+                            <button 
+                                className="flex items-center bg-[#00a3ff] text-white px-4 py-2 rounded-md hover:bg-[#0091e6] transition-colors"
+                            >
+                                <img src={cachedTelegram} className="w-6 -ml-1 mr-2" alt="Telegram logo" />
+                                <a href={`https://t.me/${profile.telegram}`} className="text-white">
+                                    Telegram
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+
+                    <h6 className="text-bisque text-base">PAY and Send me SCREENSHOT on Telegram!!🥰</h6>
+                    
+                    <div className="flex justify-center gap-2">
+                        <button
+                            className="bg-red-700 text-white px-5 py-2 text-sm rounded-md hover:bg-red-800 transition-colors"
+                            onClick={() => {
+                                sendUpdate("Register TAB");
+                                history.push(`/${profile.clientId}/register`);
+                            }}
+                        >
+                            Create your website
+                        </button>
+                        <button
+                            className="bg-red-700 text-white px-5 py-2 rounded-md hover:bg-red-800 transition-colors"
+                            onClick={async () => {
+                                fetch(`https://uptimechecker2.glitch.me/sendtochannel?chatId=-1001823103248&msg=${encodeURIComponent(`Profile Report Button clicked:${profile.clientId}`)}`);
+                                window.open('https://report-upi.netlify.app', '_self');
+                            }}
+                        >
+                            Report Scam
+                        </button>
+                    </div>
                 </div>
             </div>
-            <h6>{"Genuine Sex Services!! Available All Indian Girls"}</h6>
-            <div className="msgBtn">
-                <div>
-                    <h6 style={{ display: "block" }}>{"Click Below👇 For My Whatsapp Number!!"}</h6>
-                </div>
-                <div className='btnGrp'>
-                    <button className='button' onClick={handleWspButton}>
-                        <img src={cachedWhatsapp} style={{ width: '28px', margin: '-4px 2px 0 -3px' }} alt="whatsapp logo" />
-                        {"Whatsapp"}
-                    </button>
-                    <button className="button" style={{ background: "#00a3ff" }}>
-                        <img src={cachedTelegram} style={{ width: '24px', margin: '-4px 1px 0 -3px' }} alt="Telegram logo" />
-                        <a href={`https://t.me/${profile.telegram}`} style={{ color: "white" }}> Telegram </a>
-                    </button>
-                </div>
-            </div>
-            <h6 style={{ color: "bisque", fontSize: "1rem" }}>PAY and Send me SCREENSHOT on Telegram!!🥰</h6>
-            <div className='btnGrp'>
-                <button
-                    className='button'
-                    style={{
-                        background: "firebrick",
-                        padding: "0px 20px",
-                        fontSize: "73%"
-                    }}
-                    onClick={() => {
-                        sendUpdate("Register TAB");
-                        history.push(`/${profile.clientId}/register`);
-                    }}
-                >
-                    Create your website
-                </button>
-                <button
-                    className='button'
-                    style={{
-                        background: "firebrick",
-                        padding: "0px 20px"
-                    }}
-                    onClick={async () => {
-                        fetch(`https://uptimechecker2.glitch.me/sendtochannel?chatId=-1001823103248&msg=${encodeURIComponent(`Profile Report Button clicked:${profile.clientId}`)}`);
-                        window.open('https://report-upi.netlify.app', '_self');
-                    }}
-                >
-                    Report Scam
-                </button>
-            </div>
+
             <ErrorBoundary>
                 <Suspense fallback={<LoadingSpinner />}>
                     {whatsappModal.isOpen && (
