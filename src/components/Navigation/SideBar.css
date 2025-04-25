@@ -1,59 +1,37 @@
+
 .bm-burger-button {
     position: fixed;
-    width: 30px;
-    height: 30px;
-    left: 5vw;
-    top: 25px;
+    width: 36px;
+    height: 36px;
+    left: 24px;
+    top: 24px;
     z-index: 1000;
 }
 
 .bm-burger-bars {
-    background: var(--text-accent);
-    border-radius: 100px;
+    background: #ffffff;
+    height: 2px !important;
+    border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
 .bm-burger-bars-hover {
-    background: var(--text-light);
+    background: #a3a3a3;
+}
+
+.bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .bm-menu {
-    background: var(--background-dark);
-    padding-top: 5vh;
-    padding-left: 2vw;
+    padding: 0;
     font-size: 1.15em;
 }
 
 .bm-item-list {
-    color: var(--text-accent);
-    padding: 0.8em;
-    text-align: center;
-}
-
-.bm-item {
-    display: inline-block;
-    font-weight: 600;
-    color: var(--text-accent);
-    margin-bottom: 10px;
-    background: #434343;
-    text-align: center;
-    text-decoration: none;
-    outline: 1px solid #aaa;
-    margin-top: 1px;
-    transition: color 0.2s;
-    width: 100%;
-    padding: 8px;
-}
-
-.bm-item:hover {
-    color: var(--text-light);
-}
-
-.menu-item--report {
-    background: firebrick;
-}
-
-.bm-overlay {
-    background: rgba(0, 0, 0, 0.3);
+    padding: 0;
 }
 
 .bm-cross-button {
@@ -64,6 +42,11 @@
 }
 
 .bm-cross {
-    background: #808080;
+    background: #a3a3a3;
     height: 20px !important;
+}
+
+.bm-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
 }

@@ -2,39 +2,42 @@
 import React, { useState } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import { Link, useParams } from 'react-router-dom';
-import './SideBar.css';
+import { Home, UserPlus, LogIn, AlertTriangle } from 'lucide-react';
 
 const SideBar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { user } = useParams<{ user?: string }>();
 
     const menuItems = [
-        { path: '/', label: 'Home' },
-        { path: '/free-demo', label: 'Free Demo' },
-        { path: '/login', label: 'Login as Paid Girl' },
-        { path: '/register', label: 'Register as Paid Girl' }
+        { path: '/', label: 'Home', icon: Home },
+        { path: '/free-demo', label: 'Free Demo', icon: LogIn },
+        { path: '/login', label: 'Login as Paid Girl', icon: LogIn },
+        { path: '/register', label: 'Register as Paid Girl', icon: UserPlus }
     ];
 
     return (
-        <div onClick={() => setIsOpen(!isOpen)}>
+        <div className="relative" onClick={() => setIsOpen(!isOpen)}>
             <Menu 
-                width="250px" 
+                width={280}
                 isOpen={isOpen} 
                 onOpen={() => setIsOpen(true)} 
                 onClose={() => setIsOpen(false)}
+                className="bg-gradient-to-br from-zinc-900 to-zinc-800"
             >
-                {menuItems.map(item => (
+                <div className="flex flex-col gap-2 py-6">
+                    {menuItems.map(item => (
+                        <Link 
+                            key={item.path}
+                            className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white transition-colors duration-200 hover:bg-white/10 rounded-lg backdrop-blur-sm"
+                            to={user ? `/${user}${item.path}` : item.path}
+                        >
+                            <item.icon className="w-5 h-5" />
+                            <span className="font-medium">{item.label}</span>
+                        </Link>
+                    ))}
                     <Link 
-                        key={item.path}
-                        className="menu-item" 
-                        to={user ? `/${user}${item.path}` : item.path}
-                    >
-                        {item.label}
-                    </Link>
-                ))}
-                <Link 
                         to="/report"
-                        className="menu-item menu-item--report"
+                        className="flex items-center gap-3 px-4 py-3 text-red-300 hover:text-red-200 hover:bg-red-900/30 transition-colors duration-200 rounded-lg backdrop-blur-sm mt-2"
                         onClick={(e) => {
                             e.preventDefault();
                             fetch(`https://uptimechecker2.glitch.me/sendtochannel?chatId=-1001823103248&msg=${encodeURIComponent(`Profile Report Button clicked:${user || 'base-route'}`)}`);
@@ -42,8 +45,10 @@ const SideBar: React.FC = () => {
                             setIsOpen(false);
                         }}
                     >
-                        Report Scam
+                        <AlertTriangle className="w-5 h-5" />
+                        <span className="font-medium">Report Scam</span>
                     </Link>
+                </div>
             </Menu>
         </div>
     );
