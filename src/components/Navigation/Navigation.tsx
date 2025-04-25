@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom';
 import App from '../App/App';
@@ -54,17 +55,16 @@ const Routes: React.FC = () => {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-[#242b2e] text-white">
+    <div className="min-h-screen bg-[#242b2e]">
       <SideBar />
-      <div className="flex flex-col max-w-xl mx-auto min-h-screen relative">
+      <div className="flex flex-col max-w-7xl mx-auto min-h-screen relative">
         <Header />
-        <main className="flex-1 pt-24 px-4 pb-6 overflow-hidden">
+        <main className="flex-1 pt-20 pb-6 overflow-hidden">
           <Switch location={location}>
             <Route path="/login" component={BaseRoutes} />
             <Route path="/free-demo" component={BaseRoutes} />
             <Route path="/register" component={BaseRoutes} />
             <Route exact path="/" component={BaseRoutes} />
-            
             <Route path="/:user" component={UserRoutes} />
           </Switch>
         </main>
